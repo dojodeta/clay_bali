@@ -13,4 +13,17 @@ export default {
 
 	// Soon
 	soon: "Soon",
+
+	// Contact
+	contactContacts: "Contacts",
+	contactOpeningHours: "Opening hours",
+	contactRestaurant: "Clay Restaurant",
+	contactSoon: "Soon",
+	contactPrivateEvents: "Private Events",
+	contactAvailableUponRequest: "Available upon request",
+	contactAddress: "Address",
+	contactSocialMedia: "Social Media",
+	contactDelivery: "Delivery",
+	contactTag: "Find Your Way to Clay",
+
 };

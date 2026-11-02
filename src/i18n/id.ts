@@ -13,4 +13,16 @@ export default {
 
 	// Soon
 	soon: "Segera",
+
+	// Contact
+	contactContacts: "Kontak",
+	contactOpeningHours: "Jam operasional",
+	contactRestaurant: "Restoran Clay",
+	contactSoon: "Segera hadir",
+	contactPrivateEvents: "Acara privat",
+	contactAvailableUponRequest: "Tersedia berdasarkan permintaan",
+	contactAddress: "Alamat",
+	contactSocialMedia: "Media sosial",
+	contactDelivery: "Pesan antar",
+	contactTag: "Temukan jalanmu ke Clay",
 };
