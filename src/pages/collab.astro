@@ -1,0 +1,278 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { translations } from "../i18n";
+
+// English is rendered by default; the Header script swaps the text for the
+// saved language through the data-i18n attributes (same pattern as Header).
+const t = translations.en;
+---
+
+<Layout title="Gymnasium × Clay | Clay Bali" noindex>
+
+    <section class="collab">
+
+        <div class="container">
+
+            <div class="collab__content">
+
+                <div class="collab__brands">
+                    <img
+                        src="/contact_logo_clay.svg"
+                        alt="Clay"
+                        class="collab__logo"
+                        width="578"
+                        height="164"
+                    >
+                    <span class="collab__cross" aria-hidden="true">×</span>
+                    <img
+                        src="/logo_gymnasium.svg"
+                        alt="Gymnasium"
+                        class="collab__logo"
+                        width="2001"
+                        height="394"
+                    >
+                </div>
+
+                <span class="collab__divider" aria-hidden="true"></span>
+
+                <h1 class="collab__title" data-i18n="collabTitle">{t.collabTitle}</h1>
+
+                <div class="collab__offer">
+                    <span class="collab__percent">15%</span>
+                    <span class="collab__off" data-i18n="collabOff">{t.collabOff}</span>
+                </div>
+
+                <p class="collab__text" data-i18n="collabText">{t.collabText}</p>
+
+                <p class="collab__show" data-i18n="collabShow">{t.collabShow}</p>
+
+                <p class="collab__note" data-i18n="collabNote">{t.collabNote}</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</Layout>
+
+<style is:global>
+    html,
+    body {
+        background-color: #000;
+    }
+</style>
+
+<style>
+
+    .collab {
+        --collab-accent: #8B7FB9;
+
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+        background-color: #000;
+    }
+
+    /* Optimized copy of photo_collab.jpg (2000px wide) */
+    .collab::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("/photo_collab.webp") center / cover no-repeat;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .collab::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .collab > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 140rem;
+        min-height: 100svh;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .collab__content {
+        flex: 1;
+        padding: 14rem 0 6rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .collab__brands {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.4rem;
+    }
+
+    .collab__logo {
+        display: block;
+        width: auto;
+        height: 4.8rem;
+    }
+
+    .collab__cross {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9.6rem;
+        line-height: 1;
+        color: var(--collab-accent);
+    }
+
+    .collab__divider {
+        display: block;
+        width: 8rem;
+        height: 0.2rem;
+        margin: 4rem 0;
+        background-color: var(--collab-accent);
+    }
+
+    .collab__title {
+        max-width: 80rem;
+        font-size: clamp(2.4rem, 6.4vw, 4.8rem);
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-wrap: balance;
+    }
+
+    .collab__offer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 0;
+        padding: 3rem 5rem;
+        border: 0.1rem solid rgba(255, 241, 211, 0.35);
+    }
+
+    .collab__percent {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(9.6rem, 32vw, 16rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #FFF1D3;
+    }
+
+    .collab__off {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.4rem;
+        font-weight: 500;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: #FFF1D3;
+        /* balances the trailing letter-spacing so the word stays centered */
+        padding-left: 0.4em;
+    }
+
+    .collab__text {
+        max-width: 44rem;
+        margin: 0;
+        text-wrap: balance;
+        font-size: 1.8rem;
+        line-height: 1.6;
+        color: #FFF1D3;
+    }
+
+    .collab__show {
+        margin: 5rem 0 0;
+        text-wrap: balance;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .collab__note {
+        margin: 1.2rem 0 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.4rem;
+        color: #C4C4C4;
+    }
+
+    @media (max-width: 1440px) {
+
+        .container {
+            padding: 0 5rem;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .container {
+            padding: 0 3rem;
+        }
+
+        .collab__content {
+            padding: 12rem 0 5rem;
+        }
+
+        .collab__brands {
+            gap: 1rem;
+        }
+
+        .collab__logo {
+            height: 2.8rem;
+        }
+
+        .collab__cross {
+            font-size: 7.8rem;
+        }
+
+        .collab__divider {
+            margin: 3rem 0;
+        }
+
+        .collab__offer {
+            width: 100%;
+            margin: 3rem 0;
+            padding: 2.4rem 3rem;
+        }
+
+        .collab__off {
+            font-size: 2rem;
+        }
+
+        .collab__text {
+            font-size: 1.6rem;
+        }
+
+        .collab__show {
+            margin-top: 4rem;
+            font-size: 1.4rem;
+        }
+
+        .collab__note {
+            font-size: 1.2rem;
+        }
+
+    }
+
+</style>

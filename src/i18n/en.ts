@@ -26,4 +26,11 @@ export default {
 	contactDelivery: "Delivery",
 	contactTag: "Find Your Way to Clay",
 
+	// Collab (Gymnasium)
+	collabTitle: "A special offer for Gymnasium members",
+	collabOff: "off",
+	collabText: "As a Gymnasium member, enjoy a special discount at Clay Restaurant.",
+	collabShow: "Show this screen to your waiter",
+	collabNote: "Cannot be combined with other offers",
+
 };

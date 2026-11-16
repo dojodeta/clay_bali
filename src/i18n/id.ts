@@ -25,4 +25,11 @@ export default {
 	contactSocialMedia: "Media sosial",
 	contactDelivery: "Pesan antar",
 	contactTag: "Temukan jalanmu ke Clay",
+
+	// Collab (Gymnasium)
+	collabTitle: "Penawaran spesial untuk member Gymnasium",
+	collabOff: "diskon",
+	collabText: "Sebagai member Gymnasium, nikmati diskon spesial di Restoran Clay.",
+	collabShow: "Tunjukkan layar ini kepada pelayan Anda",
+	collabNote: "Tidak dapat digabungkan dengan promo lainnya",
 };
