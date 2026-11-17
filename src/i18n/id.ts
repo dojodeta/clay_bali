@@ -18,7 +18,7 @@ export default {
 	contactContacts: "Kontak",
 	contactOpeningHours: "Jam operasional",
 	contactRestaurant: "Restoran Clay",
-	contactSoon: "Segera hadir",
+	contactHours: "Setiap hari<br />17.00 – 22.00",
 	contactPrivateEvents: "Acara privat",
 	contactAvailableUponRequest: "Tersedia berdasarkan permintaan",
 	contactAddress: "Alamat",

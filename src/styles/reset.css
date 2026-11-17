@@ -38,9 +38,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+/* Цвет выделения текста: терракотовый фон, белый текст */
 ::selection {
-  background: transparent;
-  color: inherit;
+  background: #B44F28;
+  color: #FFFFFF;
 }
 
 /* Полезно для плавного скролла (если пользователь не отключил его в системе) */

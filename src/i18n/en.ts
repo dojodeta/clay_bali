@@ -18,7 +18,7 @@ export default {
 	contactContacts: "Contacts",
 	contactOpeningHours: "Opening hours",
 	contactRestaurant: "Clay Restaurant",
-	contactSoon: "Soon",
+	contactHours: "Daily<br />5:00 PM – 10:00 PM",
 	contactPrivateEvents: "Private Events",
 	contactAvailableUponRequest: "Available upon request",
 	contactAddress: "Address",

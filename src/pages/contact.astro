@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+// Google Maps embed: the language is stored inside the `pb` string (!1s<lang>!2s<region>),
+// so there is one URL per site language. The script at the bottom of the page switches them.
+const mapSrc = (lang: "en" | "id") =>
+    `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.0738321398426!2d115.26637889999999!3d-8.492202500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d4c9956cd45%3A0x5308c06b4dc8e0fc!2sClay%20Restaurant!5e0!3m2!1s${lang}!2sid!4v1793618873312!5m2!1s${lang}!2sid`;
 ---
 
 <Layout title="Contact | Clay Bali">
@@ -57,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
                         <h5 class="contact__title" data-i18n="contactOpeningHours"></h5>
                         <div class="contact__item">
                             <h5 data-i18n="contactRestaurant"></h5>
-                            <span class="soon-text" data-i18n="contactSoon"></span>
+                            <span data-i18n="contactHours"></span>
                         </div>
                         <div class="contact__item">
                             <h5 data-i18n="contactPrivateEvents"></h5>
@@ -86,15 +91,16 @@ import Layout from "../layouts/Layout.astro";
                     
                     
                     <div class="contact__map">
-                        <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.0738321398426!2d115.26637889999999!3d-8.492202500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d4c9956cd45%3A0x5308c06b4dc8e0fc!2sClay%20Restaurant!5e0!3m2!1sru!2sru!4v1793618873312!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" 
-                        width="100%"
-                        height="100%"
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe
+                            id="contact-map"
+                            src={mapSrc("en")}
+                            data-src-en={mapSrc("en")}
+                            data-src-id={mapSrc("id")}
+                            title="Clay Restaurant on Google Maps"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                        ></iframe>
                     </div>
 
                     
@@ -251,14 +257,17 @@ import Layout from "../layouts/Layout.astro";
         margin-top: auto;  
     }
 
-    .soon-text {
-       text-transform: uppercase; 
-    }
-
     .contact__map {
         width: 100%;
         height: 100%;
         background-color: #222;
+    }
+
+    .contact__map iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
     }
 
     .contact__socials {
@@ -499,3 +508,27 @@ import Layout from "../layouts/Layout.astro";
 
 
 </style>
+
+<script>
+    // Keeps the map language in sync with the site language (EN / ID switcher in the Header).
+    const map = document.querySelector<HTMLIFrameElement>("#contact-map");
+
+    if (map) {
+        const syncMapLanguage = () => {
+            const src = document.documentElement.lang === "id"
+                ? map.dataset.srcId
+                : map.dataset.srcEn;
+
+            if (src && map.getAttribute("src") !== src) {
+                map.setAttribute("src", src);
+            }
+        };
+
+        syncMapLanguage();
+
+        new MutationObserver(syncMapLanguage).observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["lang"],
+        });
+    }
+</script>
